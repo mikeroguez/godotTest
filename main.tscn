@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bef3tx6p7lx0i"]
+
+[ext_resource type="PackedScene" uid="uid://b3twsgmlxnvxb" path="res://personaje.tscn" id="1_mc82o"]
+[ext_resource type="PackedScene" uid="uid://vdwh10qevt2q" path="res://piso.tscn" id="2_xrx7y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_mc82o")]
+position = Vector2(564, 303)
+
+[node name="TileMap" parent="." instance=ExtResource("2_xrx7y")]
+position = Vector2(9, 57)

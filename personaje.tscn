@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3twsgmlxnvxb"]
+
+[ext_resource type="Script" path="res://personaje.gd" id="1_iygg0"]
+[ext_resource type="Texture2D" uid="uid://d2ff846pwyyjh" path="res://kenney_platformer-characters/PNG/Player/Poses/player_duck.png" id="1_k2o0u"]
+[ext_resource type="Texture2D" uid="uid://btwx8n484ocw1" path="res://kenney_platformer-characters/PNG/Player/Poses/player_fall.png" id="2_qra7k"]
+[ext_resource type="Texture2D" uid="uid://pdo0f88avkag" path="res://kenney_platformer-characters/PNG/Player/Poses/player_idle.png" id="3_so4fc"]
+[ext_resource type="Texture2D" uid="uid://cd8nlwtufrt8m" path="res://kenney_platformer-characters/PNG/Player/Poses/player_jump.png" id="4_pp4tc"]
+[ext_resource type="Texture2D" uid="uid://der64e3vt0nv1" path="res://kenney_platformer-characters/PNG/Player/Poses/player_stand.png" id="5_y64db"]
+[ext_resource type="Texture2D" uid="uid://doo08oubofmj" path="res://kenney_platformer-characters/PNG/Player/Poses/player_walk1.png" id="6_01qno"]
+[ext_resource type="Texture2D" uid="uid://dek8xhtoqumro" path="res://kenney_platformer-characters/PNG/Player/Poses/player_walk2.png" id="7_1ynqy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_at6op"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k2o0u")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qra7k")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_so4fc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pp4tc")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y64db")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_01qno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1ynqy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnbhl"]
+radius = 24.0
+height = 98.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_iygg0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_at6op")
+animation = &"fall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_nnbhl")
